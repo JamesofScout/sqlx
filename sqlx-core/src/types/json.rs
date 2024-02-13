@@ -63,6 +63,12 @@ impl<T> From<T> for Json<T> {
     }
 }
 
+impl<T> From<Json<T> for T {
+    fn from(value: Json<T>) -> Self {
+        value.0
+    }
+}
+
 impl<T> Deref for Json<T> {
     type Target = T;
 
